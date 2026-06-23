@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morpho Midnight — Partnership Marketing Kit</title>
+
+  <style>
+    /* ── Fonts ── */
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: "FK Grotesk"; src: url("project/assets/fonts/FKGrotesk-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+    @font-face { font-family: "Untitled Sans"; src: url("project/assets/fonts/untitled-sans-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Untitled Sans"; src: url("project/assets/fonts/untitled-sans-medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Untitled Sans"; src: url("project/assets/fonts/untitled-sans-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+    /* ── Design tokens ── */
+    :root {
+      --accent: #2973FF;
+      --accent-bright: #8FB6FF;
+      --midnight-bg:   #0B0D10;
+      --midnight-bg-1: #12161B;
+      --midnight-bg-2: #1A1F26;
+      --midnight-bg-3: #232932;
+
+      --fg-primary:    #FFFFFF;
+      --fg-secondary:  #DEE8FC;
+      --fg-tertiary:   #95A1B8;
+      --fg-quaternary: #5B677E;
+
+      --border-primary:    rgba(255,255,255,0.12);
+      --border-secondary:  rgba(255,255,255,0.08);
+      --border-tertiary:   rgba(255,255,255,0.05);
+
+      --font-display: "FK Grotesk", "Inter", system-ui, sans-serif;
+      --font-mono:    "FK Grotesk SemiMono", "IBM Plex Mono", ui-monospace, monospace;
+
+      --radius-xs:   4px;
+      --radius-s:    8px;
+      --radius-m:    12px;
+      --radius-l:    16px;
+      --radius-xl:   24px;
+      --radius-full: 999px;
+
+      --shadow-2: 0 8px 24px rgba(0,0,0,0.35);
+
+      --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --dur-fast: 120ms;
+      --dur-base: 200ms;
+
+      --pad-section: 120px;
+    }
+
+    html[data-density="compact"] {
+      --pad-section: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--midnight-bg);
+      color: var(--fg-primary);
+      font-family: var(--font-display);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection { background: var(--accent); color: #fff; }
+
+    h1,h2,h3,h4,h5,h6 { margin: 0; }
+    p { margin: 0; color: var(--fg-secondary); }
+    a { color: var(--fg-primary); text-decoration: none; }
+
+    .t-overline {
+      font-family: var(--font-display);
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-tertiary);
+    }
+
+    /* ── Top Bar ── */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,13,16,0.78);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border-bottom: 1px solid var(--border-secondary);
+    }
+    .topbar-inner {
+      max-width: 1440px; margin: 0 auto;
+      padding: 14px 48px;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .topbar-brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { height: 22px; width: auto; }
+    .brand-divider { color: var(--fg-quaternary); font-weight: 300; }
+    .brand-label { font-size: 13px; color: var(--fg-secondary); letter-spacing: -0.01em; }
+    .topbar-nav { display: flex; gap: 28px; margin-left: 24px; }
+    .topbar-nav a {
+      color: var(--fg-tertiary); font-size: 13px;
+      border-bottom: none;
+      transition: color var(--dur-fast) var(--ease-standard);
+    }
+    .topbar-nav a:hover { color: var(--fg-primary); }
+
+    .persona-pill-wrap { margin-left: auto; position: relative; }
+    .persona-pill {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--border-primary);
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-full);
+      color: var(--fg-primary);
+      font-family: inherit; font-size: 13px;
+      cursor: pointer;
+      transition: border-color var(--dur-fast) var(--ease-standard);
+    }
+    .persona-pill:hover { border-color: rgba(255,255,255,0.20); }
+    .persona-pill-label { font-weight: 500; }
+    .persona-menu {
+      position: absolute; top: calc(100% + 8px); right: 0;
+      min-width: 300px;
+      background: var(--midnight-bg-1);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-m);
+      box-shadow: var(--shadow-2);
+      padding: 6px;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .persona-menu-item {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 10px 14px;
+      background: transparent; border: none;
+      border-radius: var(--radius-s);
+      text-align: left; cursor: pointer;
+      color: var(--fg-primary); font-family: inherit;
+      transition: background var(--dur-fast) var(--ease-standard);
+    }
+    .persona-menu-item:hover { background: rgba(255,255,255,0.04); }
+    .persona-menu-item.is-active { background: rgba(41,115,255,0.10); }
+    .persona-menu-item.is-active .persona-menu-label { color: var(--accent-bright); }
+    .persona-menu-label { font-size: 14px; font-weight: 500; }
+    .persona-menu-sub { font-size: 11px; color: var(--fg-tertiary); letter-spacing: 0.02em; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 140px 80px 120px;
+      background: var(--midnight-bg);
+      min-height: 92vh;
+      display: flex; align-items: center;
+    }
+    .hero-backdrop {
+      position: absolute; inset: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    .hero-gauge {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+
+    @keyframes clock-tick {
+      0%      { transform: rotate(-30deg); }
+      16.67%  { transform: rotate(-24deg); }
+      33.33%  { transform: rotate(-18deg); }
+      50%     { transform: rotate(-12deg); }
+      66.67%  { transform: rotate(-6deg);  }
+      83.33%  { transform: rotate(0deg);   }
+      100%    { transform: rotate(0deg);   }
+    }
+    .clock-hand {
+      animation: clock-tick 6s steps(1, end) infinite;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 32px;
+    }
+    .hero-meta-dot { color: var(--fg-quaternary); }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(51px, 9.6vw, 128px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin: 0 0 24px;
+      color: var(--fg-primary);
+    }
+    .hero-title-em {
+      background: linear-gradient(180deg, #fff 0%, var(--accent-bright) 70%, var(--accent) 110%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-style: italic;
+    }
+    .hero-sub {
+      max-width: 720px; font-size: 22px; line-height: 1.45;
+      color: var(--fg-secondary); margin: 0 0 40px; font-weight: 400;
+    }
+    .hero-launch {
+      display: inline-flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-launch-item {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-secondary);
+      border-radius: var(--radius-full);
+    }
+    .hero-launch-item .t-overline { font-size: 10px; opacity: 0.7; }
+    .hero-launch-value {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 13px; color: var(--fg-primary);
+    }
+
+    /* ── Section shell ── */
+    .section {
+      position: relative;
+      padding: var(--pad-section, 120px) 80px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .section + .section { border-top: 1px solid var(--border-secondary); }
+    .section-header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      margin-bottom: 80px;
+      max-width: 1280px;
+      margin-left: auto; margin-right: auto;
+    }
+    .section-number {
+      font-family: var(--font-mono), monospace;
+      font-size: 14px; color: var(--fg-quaternary);
+      padding-top: 12px; letter-spacing: 0.04em;
+    }
+    .section-titles { display: flex; flex-direction: column; gap: 16px; }
+    .section-title {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 56px; line-height: 1.05;
+      letter-spacing: -0.025em; color: var(--fg-primary);
+      margin: 0; max-width: 920px;
+    }
+    .section-sub {
+      font-size: 18px; line-height: 1.55;
+      color: var(--fg-tertiary); max-width: 720px; margin: 0;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      max-width: 1280px; margin: 0 auto;
+      position: relative; padding-left: 60px;
+    }
+    .timeline-spine {
+      position: absolute; left: 4px; top: 12px; bottom: 12px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, var(--border-primary) 8%, var(--border-primary) 92%, transparent);
+    }
+    .timeline-cols-head {
+      display: grid;
+      grid-template-columns: 180px 1.1fr 1fr;
+      gap: 40px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-primary);
+      margin-bottom: 4px;
+    }
+    .timeline-cols-head .tcol-support { padding-left: 24px; }
+    .timeline-cols-head .t-overline { color: var(--fg-tertiary); }
+    .tcol-support-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent-bright) !important; font-weight: 600;
+    }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 180px 1.1fr 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-secondary);
+      position: relative;
+      align-items: start;
+    }
+    .timeline-row:last-child { border-bottom: none; }
+    .timeline-dot-col {
+      position: absolute; left: -48px; top: 42px;
+    }
+    .timeline-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--midnight-bg);
+      border: 2px solid var(--border-primary);
+      transition: background var(--dur-base) var(--ease-standard),
+                  border-color var(--dur-base) var(--ease-standard),
+                  box-shadow var(--dur-base) var(--ease-standard);
+    }
+    .timeline-row.is-active .timeline-dot {
+      background: var(--accent); border-color: var(--accent);
+      box-shadow: 0 0 0 6px rgba(41,115,255,0.18), 0 0 24px var(--accent);
+    }
+    .timeline-day-col { display: flex; flex-direction: column; gap: 4px; }
+    .timeline-day {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 36px; letter-spacing: -0.02em;
+      color: var(--fg-tertiary); line-height: 1;
+      transition: color var(--dur-base) var(--ease-standard);
+    }
+    .timeline-row.is-active .timeline-day { color: var(--accent-bright); }
+    .timeline-title {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 22px; letter-spacing: -0.01em;
+      color: var(--fg-secondary); margin: 0 0 8px;
+      transition: color var(--dur-base) var(--ease-standard);
+    }
+    .timeline-row.is-active .timeline-title { color: var(--fg-primary); }
+    .timeline-body {
+      font-size: 16px; line-height: 1.6;
+      color: var(--fg-tertiary); max-width: 600px; margin: 0;
+      transition: color var(--dur-base) var(--ease-standard);
+    }
+    .timeline-row.is-active .timeline-body { color: var(--fg-secondary); }
+    .timeline-support-col {
+      padding-top: 2px; padding-left: 24px;
+      border-left: 2px solid var(--accent);
+    }
+    .timeline-support {
+      font-size: 16px; line-height: 1.55;
+      color: var(--fg-primary); margin: 0; font-weight: 500;
+    }
+    .timeline-cta {
+      margin-top: 16px;
+      display: inline-flex; align-items: center;
+      font-size: 13px; padding: 10px 18px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 14px 24px; border-radius: var(--radius-s);
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      cursor: pointer; border: 1px solid transparent;
+      transition: all var(--dur-fast) var(--ease-standard);
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-primary:hover { background: var(--accent-bright); color: var(--midnight-bg); border: none; }
+    .btn-ghost {
+      background: transparent; color: var(--fg-primary);
+      border: 1px solid var(--border-primary);
+    }
+    .btn-ghost:hover { border-color: var(--fg-primary); }
+
+    /* ── Intro section ── */
+    .section-intro {
+      background: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(41,115,255,0.05), transparent 60%);
+    }
+    .intro-sub-title {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 26px; letter-spacing: -0.01em; color: var(--fg-primary); margin: 0;
+    }
+    .intro-sub-lede { font-size: 16px; color: var(--fg-tertiary); margin: 6px 0 0; }
+    .intro-why { max-width: 1280px; margin: 0 auto 96px; }
+    .intro-why-head { margin-bottom: 28px; }
+    .intro-why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .intro-card {
+      padding: 32px 36px; border-radius: var(--radius-xl);
+      border: 1px solid var(--border-secondary);
+      background: var(--midnight-bg-1);
+    }
+    .intro-card-proved {
+      background: linear-gradient(180deg, rgba(41,115,255,0.07), rgba(41,115,255,0.015));
+      border-color: rgba(41,115,255,0.22);
+    }
+    .intro-card-revealed {
+      background: linear-gradient(180deg, rgba(143,182,255,0.05), rgba(255,255,255,0.01));
+    }
+    .intro-card-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--fg-secondary);
+      margin-bottom: 24px;
+    }
+    .intro-badge {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .intro-badge-check { background: var(--accent); }
+    .intro-badge-arrow { background: var(--fg-quaternary); }
+    .intro-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .intro-list li {
+      font-size: 18px; font-weight: 400; line-height: 1.4;
+      color: var(--fg-primary); padding: 18px 0;
+      border-top: 1px solid var(--border-tertiary);
+    }
+    .intro-list li:first-child { border-top: none; padding-top: 4px; }
+    .intro-card-revealed .intro-list li { color: var(--fg-secondary); }
+
+    .intro-what {
+      max-width: 1280px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px; align-items: start;
+    }
+    .intro-what-head { position: sticky; top: 96px; }
+    .intro-definition {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 24px; line-height: 1.35; letter-spacing: -0.01em;
+      color: var(--fg-primary); margin: 16px 0 0; text-wrap: pretty;
+    }
+    .intro-complement {
+      font-size: 16px; line-height: 1.6; color: var(--fg-tertiary);
+      margin: 20px 0 0; max-width: 460px;
+    }
+    .intro-links { margin-top: 28px; }
+    .intro-links .t-overline { display: block; margin-bottom: 10px; }
+    .intro-links-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .intro-link-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-full);
+      color: var(--fg-primary); font-size: 13px; font-weight: 500;
+      text-decoration: none;
+      transition: all var(--dur-fast) var(--ease-standard);
+    }
+    .intro-link-pill:hover { border-color: var(--accent); color: var(--accent-bright); }
+    .intro-diagram {
+      margin: 0; background: #EEF1F6;
+      border: 1px solid #EEF1F6;
+      border-radius: var(--radius-l); overflow: hidden;
+    }
+    .intro-diagram img { display: block; width: 100%; height: auto; }
+    .intro-diagram figcaption {
+      font-size: 12px; color: var(--fg-tertiary);
+      padding: 14px 20px;
+      background: var(--midnight-bg-1);
+      border-top: 1px solid var(--border-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Persona / Benefits ── */
+    .section-persona {
+      background: radial-gradient(ellipse 60% 40% at 100% 0%, rgba(41,115,255,0.06), transparent 60%);
+    }
+    .persona-picker { max-width: 1100px; margin: 0 auto 64px; }
+    .persona-picker > .t-overline { display: block; margin-bottom: 16px; }
+    .persona-picker-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .persona-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px;
+      background: var(--midnight-bg-1);
+      border: 1px solid var(--border-secondary);
+      border-radius: var(--radius-full);
+      cursor: pointer; text-align: left;
+      font-family: inherit; color: var(--fg-tertiary);
+      transition: all var(--dur-fast) var(--ease-standard);
+    }
+    .persona-chip:hover { border-color: var(--border-primary); color: var(--fg-primary); }
+    .persona-chip.is-active {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(41,115,255,0.12), rgba(41,115,255,0.04));
+      color: var(--fg-primary);
+    }
+    .persona-chip-label { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+
+    .persona-hero {
+      max-width: 1100px; margin: 0 auto 80px;
+      display: flex; flex-direction: column; gap: 24px;
+      padding: 56px 64px;
+      background: var(--midnight-bg-1);
+      border: 1px solid var(--border-secondary);
+      border-radius: var(--radius-xl);
+      position: relative; overflow: hidden;
+    }
+    .persona-hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(41,115,255,0.25), transparent 70%);
+      pointer-events: none;
+    }
+    .persona-quote {
+      margin: 0;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 36px; line-height: 1.25; letter-spacing: -0.02em;
+      color: var(--fg-primary); text-wrap: pretty; position: relative;
+    }
+
+    .proofs { max-width: 1100px; margin: 0 auto; }
+    .proofs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .proof-card {
+      display: flex; flex-direction: column; gap: 16px;
+      padding: 32px 28px;
+      background: var(--midnight-bg-1);
+      border: 1px solid var(--border-secondary);
+      border-radius: var(--radius-l);
+      transition: border-color var(--dur-base) var(--ease-standard);
+    }
+    .proof-card:hover { border-color: var(--border-primary); }
+    .proof-index {
+      font-family: var(--font-mono), monospace;
+      font-size: 11px; letter-spacing: 0.06em; color: var(--accent-bright);
+    }
+    .proof-value {
+      font-size: 19px; font-weight: 400; letter-spacing: -0.01em;
+      line-height: 1.4; color: var(--fg-secondary); margin: 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border-secondary);
+      padding: 80px 80px 40px;
+      max-width: 1440px; margin: 0 auto;
+      background: var(--midnight-bg);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+      margin-bottom: 64px;
+      max-width: 1280px; margin-left: auto; margin-right: auto;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border-secondary);
+    }
+    .footer-logo { height: 28px; width: auto; margin-bottom: 16px; }
+    .footer-tag { font-size: 18px; color: var(--fg-secondary); font-weight: 300; margin: 0; }
+    .footer-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-col { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--fg-secondary); }
+    .footer-legal {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: var(--fg-quaternary); letter-spacing: 0.04em;
+    }
+
+    /* ── Density compact ── */
+    html[data-density="compact"] .section { padding: 64px 80px; }
+    html[data-density="compact"] .hero { padding: 80px 80px 60px; min-height: 70vh; }
+    html[data-density="compact"] .section-header { margin-bottom: 48px; }
+    html[data-density="compact"] .section-title { font-size: 40px; }
+    html[data-density="compact"] .persona-hero { padding: 32px 36px; margin-bottom: 64px; }
+    html[data-density="compact"] .persona-quote { font-size: 26px; }
+    html[data-density="compact"] .proof-card { padding: 20px 22px; }
+    html[data-density="compact"] .timeline-row { padding: 20px 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .topbar-inner, .hero, .section, .footer { padding-left: 24px; padding-right: 24px; }
+      .topbar-nav { display: none; }
+      .section-header { grid-template-columns: 1fr; }
+      .section-title { font-size: 36px; }
+      .hero { padding-top: 80px; padding-bottom: 80px; }
+      .intro-why-grid { grid-template-columns: 1fr; }
+      .intro-what { grid-template-columns: 1fr; gap: 32px; }
+      .intro-what-head { position: static; }
+      .intro-why { margin-bottom: 64px; }
+      .proofs-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .timeline { padding-left: 36px; }
+      .timeline-cols-head { display: none; }
+      .timeline-row { grid-template-columns: 1fr; gap: 12px; }
+      .timeline-dot-col { left: -36px; }
+      .timeline-support-col { padding-top: 12px; border-top: 1px solid var(--border-tertiary); border-left: none; }
+    }
+
+    /* ── Tweaks panel (minimal host styles) ── */
+    .twk-panel {
+      position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 280px;
+      max-height: calc(100vh - 32px); display: flex; flex-direction: column;
+      background: rgba(250,249,247,.88); color: #29261b;
+      -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%);
+      border: .5px solid rgba(255,255,255,.6); border-radius: 14px;
+      box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 12px 40px rgba(0,0,0,.18);
+      font: 11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif; overflow: hidden;
+    }
+    .twk-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 8px 10px 14px; cursor: move; user-select: none;
+    }
+    .twk-hd b { font-size: 12px; font-weight: 600; letter-spacing: .01em; }
+    .twk-x {
+      appearance: none; border: 0; background: transparent; color: rgba(41,38,27,.55);
+      width: 22px; height: 22px; border-radius: 6px; cursor: default; font-size: 13px; line-height: 1;
+    }
+    .twk-x:hover { background: rgba(0,0,0,.06); color: #29261b; }
+    .twk-body {
+      padding: 2px 14px 14px; display: flex; flex-direction: column; gap: 10px;
+      overflow-y: auto; overflow-x: hidden; min-height: 0;
+    }
+    .twk-row { display: flex; flex-direction: column; gap: 5px; }
+    .twk-lbl { display: flex; justify-content: space-between; align-items: baseline; color: rgba(41,38,27,.72); }
+    .twk-lbl > span:first-child { font-weight: 500; }
+    .twk-sect { font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(41,38,27,.45); padding: 10px 0 0; }
+    .twk-sect:first-child { padding-top: 0; }
+    .twk-field {
+      appearance: none; box-sizing: border-box; width: 100%; min-width: 0; height: 26px; padding: 0 8px;
+      border: .5px solid rgba(0,0,0,.1); border-radius: 7px;
+      background: rgba(255,255,255,.6); color: inherit; font: inherit; outline: none;
+    }
+    select.twk-field {
+      padding-right: 22px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+      background-repeat: no-repeat; background-position: right 8px center;
+    }
+    .twk-seg {
+      position: relative; display: flex; padding: 2px; border-radius: 8px;
+      background: rgba(0,0,0,.06); user-select: none;
+    }
+    .twk-seg-thumb {
+      position: absolute; top: 2px; bottom: 2px; border-radius: 6px;
+      background: rgba(255,255,255,.9); box-shadow: 0 1px 2px rgba(0,0,0,.12);
+      transition: left .15s, width .15s;
+    }
+    .twk-seg button {
+      appearance: none; position: relative; z-index: 1; flex: 1; border: 0;
+      background: transparent; color: inherit; font: inherit; font-weight: 500;
+      min-height: 22px; border-radius: 6px; cursor: default; padding: 4px 6px;
+    }
+    .twk-chips { display: flex; gap: 6px; }
+    .twk-chip {
+      position: relative; appearance: none; flex: 1; min-width: 0; height: 46px;
+      padding: 0; border: 0; border-radius: 6px; overflow: hidden; cursor: default;
+      box-shadow: 0 0 0 .5px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.06);
+      transition: transform .12s, box-shadow .12s;
+    }
+    .twk-chip:hover { transform: translateY(-1px); box-shadow: 0 0 0 .5px rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.12); }
+    .twk-chip[data-on="1"] { box-shadow: 0 0 0 1.5px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.15); }
+    .twk-chip svg { position: absolute; top: 6px; left: 6px; width: 13px; height: 13px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    /* ── Data ── */
+    const PERSONAS = [
+      {
+        id: 'institutions',
+        label: 'Institutions',
+        sub: 'Banks · asset managers',
+        hero: 'Predictable & familiar term structure, with onchain benefits.',
+        proofs: [
+          'Full control over rate, risk, maturity, and market-level compliance',
+          'Rate and fee certainty from day one',
+          'Tap into Morpho\'s network without building & bootstrapping your own',
+        ],
+      },
+      {
+        id: 'enterprises',
+        label: 'Fintechs',
+        sub: 'Fintechs · neobanks · product teams',
+        hero: 'Offer fixed-rate products alongside variable-rate.',
+        proofs: [
+          'Scalable customization to build predictable credit products based on user needs',
+          'Out of the box credit network',
+        ],
+      },
+      {
+        id: 'curators',
+        label: 'Curators',
+        sub: 'Vault curators · risk strategists',
+        hero: 'New dimensions to differentiate on: risk and rate',
+        proofs: [
+          'Duration management becomes an important part of curator strategy',
+          'Multi-market offers and callbacks maximize capital efficiency of deposits',
+          'Access gates for lenders to satisfy any compliance needs',
+        ],
+      },
+      {
+        id: 'lenders-borrowers',
+        label: 'Lenders & borrowers',
+        sub: 'End users',
+        hero: 'Predictable rates and terms for the life of the loan.',
+        proofs: [
+          'Flexibility: one offer can quote across multiple markets',
+          'Capital keeps earning variable yield on Blue while waiting for a fixed-rate match on Midnight',
+        ],
+      },
+    ];
+
+    const TIMELINE = [
+      {
+        day: 'D −7',
+        title: 'The ticking clock',
+        body: 'An animated clock ticking towards Midnight, posted by @morpho.',
+        support: 'RT the teaser from @morpho.',
+        tone: 'tease',
+      },
+      {
+        day: 'D −1',
+        title: '🕛 Midnight is coming',
+        body: 'A stand-alone @morpho post of a single emoji: 🕛',
+        support: 'QT with 🕛 from your brand and/or exec accounts.',
+        tone: 'tease',
+      },
+      {
+        day: 'Launch Day',
+        title: 'Midnight goes live',
+        body: 'Announcement with animation and a CTA towards the Morpho Midnight app.',
+        support: "QT the announcement with a line on what Midnight unlocks for what you're building.",
+        cta: 'Core benefit for you',
+        ctaHref: '#messaging',
+        tone: 'launch',
+      },
+    ];
+
+    const WHY_MIDNIGHT = {
+      proved: [
+        'Isolated markets',
+        'The vault & curator model',
+        'The value of full control over risk',
+      ],
+      revealed: [
+        'Liquidity fragmentation is still a challenge — especially with onchain compliance',
+        'Users demand more predictability',
+        'Participants benefit from controlling both risk and rate',
+      ],
+    };
+
+    const WHAT_IS_MIDNIGHT = {
+      definition: 'Morpho Midnight is a noncustodial protocol for fixed-rate, fixed-term credit markets that enables lenders and borrowers to be matched on their own terms.',
+      complement: "Midnight complements Morpho Blue, Morpho's protocol for variable-rate lending. While Blue supports open-term, variable-rate borrowing, Midnight introduces fixed term credit markets with pricing set directly by lenders and borrowers.",
+      links: [
+        { label: 'Code base', href: 'https://t.co/mhHwMqClmn' },
+        { label: 'Whitepaper', href: 'https://morpho.org/whitepapers/midnight-whitepaper.pdf' },
+        { label: 'Deck', href: 'https://morpho.docsend.com/view/adaad8gmujszedvm' },
+        { label: 'One pager', href: '#' },
+      ],
+    };
+
+    const ACCENT_PALETTES = {
+      '#2973FF': { name: 'Morpho blue',     bright: '#8FB6FF' },
+      '#3D5BFF': { name: 'Midnight indigo', bright: '#A8B6FF' },
+      '#3FA8FF': { name: 'Cool cyan',       bright: '#9FD4FF' },
+      '#7A5BFF': { name: 'Deep violet',     bright: '#C2B0FF' },
+    };
+
+    const LOGO_SYMBOL     = 'project/assets/Morpho-logo-symbol-darkmode.svg';
+    const LOGO_HORIZONTAL = 'project/assets/Morpho-logo-horizontal-darkmode.svg';
+    const DIAGRAM_IMG     = 'project/assets/midnight-complements-blue.png';
+
+    /* ── Tweaks state ── */
+    function useTweaks(defaults) {
+      const [values, setValues] = useState(defaults);
+      const setTweak = (key, val) => setValues(prev => ({ ...prev, [key]: val }));
+      return [values, setTweak];
+    }
+
+    /* ── HeroBackdrop: large clock dial peeking from bottom ── */
+    function HeroBackdrop() {
+      const W = 1920, H = 1080;
+      const cx = W / 2;
+      const R  = 1920;
+      const cy = 2743;
+      const visibleAngle = Math.PI / 6;
+
+      const ticks = [];
+      for (let s = 0; s < 60; s++) {
+        const angle = ((s % 60) - 60) * Math.PI / 30;
+        let theta = angle;
+        while (theta <= -Math.PI) theta += 2 * Math.PI;
+        if (Math.abs(theta) > visibleAngle + 0.02) continue;
+        const sinT = Math.sin(theta);
+        const cosT = -Math.cos(theta);
+        const isMajor = s % 5 === 0;
+        const inner = R - (isMajor ? 44 : 24);
+        const outer = R + (isMajor ? 4 : 0);
+        ticks.push({ x1: cx+sinT*inner, y1: cy+cosT*inner, x2: cx+sinT*outer, y2: cy+cosT*outer, isMajor, i: s });
+      }
+
+      return (
+        <div className="hero-backdrop" aria-hidden="true">
+          <svg className="hero-gauge" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMax slice">
+            <defs>
+              <radialGradient id="hero-glow" cx="50%" cy="100%" r="48%">
+                <stop offset="0%"  stopColor="#5792FF" stopOpacity="0.45" />
+                <stop offset="40%" stopColor="#2973FF" stopOpacity="0.16" />
+                <stop offset="85%" stopColor="#0B0D10" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="hero-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"  stopColor="#0B0D10" />
+                <stop offset="100%" stopColor="#101620" />
+              </linearGradient>
+              <linearGradient id="hand-grad" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%"  stopColor="#5792FF" stopOpacity="0" />
+                <stop offset="55%" stopColor="#7AA8FF" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#E2EBFF" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width={W} height={H} fill="url(#hero-bg)" />
+            <rect x="0" y="0" width={W} height={H} fill="url(#hero-glow)" />
+            {ticks.map(t => (
+              <line key={t.i} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2}
+                stroke="rgba(255,255,255,0.95)" strokeWidth={t.isMajor ? 1.8 : 1.2}
+                strokeLinecap="round" opacity={t.isMajor ? 0.95 : 0.65} />
+            ))}
+            <line x1={cx} y1={cy-R+44} x2={cx} y2={cy-R-4}
+              stroke="#A8C5FF" strokeWidth="3" strokeLinecap="round" opacity="0.95" />
+            <g style={{ transformOrigin: `${cx}px ${cy}px` }} className="clock-hand">
+              <line x1={cx} y1={cy} x2={cx} y2={cy-R-4}
+                stroke="url(#hand-grad)" strokeWidth="3.6" strokeLinecap="round" />
+              <circle cx={cx} cy={cy-R-4} r="6" fill="#E2EBFF" opacity="0.95" />
+            </g>
+          </svg>
+        </div>
+      );
+    }
+
+    /* ── PersonaPill dropdown ── */
+    function PersonaPill({ persona, onChange }) {
+      const [open, setOpen] = useState(false);
+      const ref = useRef(null);
+      useEffect(() => {
+        const close = e => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+        document.addEventListener('mousedown', close);
+        return () => document.removeEventListener('mousedown', close);
+      }, []);
+      return (
+        <div className="persona-pill-wrap" ref={ref}>
+          <button className="persona-pill" onClick={() => setOpen(!open)}>
+            <span className="persona-pill-label">{persona.label}</span>
+            <svg width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" strokeWidth="1.5"/></svg>
+          </button>
+          {open && (
+            <div className="persona-menu">
+              {PERSONAS.map(p => (
+                <button key={p.id} className={`persona-menu-item${p.id === persona.id ? ' is-active' : ''}`}
+                  onClick={() => { onChange(p.id); setOpen(false); }}>
+                  <span className="persona-menu-label">{p.label}</span>
+                  <span className="persona-menu-sub">{p.sub}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    /* ── TopBar ── */
+    function TopBar({ persona, onPersonaChange }) {
+      return (
+        <header className="topbar">
+          <div className="topbar-inner">
+            <div className="topbar-brand">
+              <img src={LOGO_SYMBOL} alt="Morpho" className="brand-mark" />
+              <span className="brand-divider">/</span>
+              <span className="brand-label">Midnight · Partnership kit</span>
+            </div>
+            <nav className="topbar-nav">
+              <a href="#launching">Announcement Plan</a>
+              <a href="#intro">Midnight</a>
+              <a href="#messaging">Benefits</a>
+            </nav>
+            <PersonaPill persona={persona} onChange={onPersonaChange} />
+          </div>
+        </header>
+      );
+    }
+
+    /* ── Hero ── */
+    function Hero() {
+      return (
+        <section className="hero">
+          <HeroBackdrop />
+          <div className="hero-content">
+            <div className="hero-meta">
+              <span className="t-overline">Partnership marketing kit</span>
+              <span className="hero-meta-dot">·</span>
+              <span className="t-overline">CONFIDENTIAL</span>
+            </div>
+            <h1 className="hero-title">
+              Morpho<br/>
+              <span className="hero-title-em">Midnight</span>
+            </h1>
+            <p className="hero-sub">
+              Fixed-rate, fixed-term onchain credit.<br/>
+              The infrastructure that brings the $200T credit markets onchain.
+            </p>
+            <div className="hero-launch">
+              <div className="hero-launch-item">
+                <span className="t-overline">Launch</span>
+                <span className="hero-launch-value">est. Early July 2026</span>
+              </div>
+              <div className="hero-launch-item">
+                <span className="t-overline">Teasing window</span>
+                <span className="hero-launch-value">7 days prior to announcement</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── Section header ── */
+    function SectionHeader({ number, title, sub }) {
+      return (
+        <div className="section-header">
+          <div className="section-number">{number}</div>
+          <div className="section-titles">
+            <h2 className="section-title">{title}</h2>
+            {sub && <p className="section-sub">{sub}</p>}
+          </div>
+        </div>
+      );
+    }
+
+    /* ── Section 01: Announcement Plan / How you can support ── */
+    function SectionWhatLaunching() {
+      const rowsRef = useRef([]);
+      const [activeIdx, setActiveIdx] = useState(0);
+
+      useEffect(() => {
+        const onScroll = () => {
+          const anchor = window.innerHeight * 0.5;
+          let best = 0, bestDist = Infinity;
+          rowsRef.current.forEach((el, i) => {
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            const center = r.top + r.height / 2;
+            if (center <= anchor + 60) {
+              const dist = Math.abs(center - anchor);
+              if (dist < bestDist) { bestDist = dist; best = i; }
+            }
+          });
+          setActiveIdx(best);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+      }, []);
+
+      return (
+        <section id="launching" className="section">
+          <SectionHeader number="01" title="How you can support"
+            sub="During launch week we ask for 2 RTs of the teasers and 1 QT of the announcement." />
+          <div className="timeline">
+            <div className="timeline-cols-head">
+              <div className="tcol-when"></div>
+              <div className="tcol-what"><span className="t-overline">What @morpho posts</span></div>
+              <div className="tcol-support"><span className="t-overline tcol-support-label">★ HOW TO SUPPORT</span></div>
+            </div>
+            <div className="timeline-spine" />
+            {TIMELINE.map((t, i) => (
+              <div key={t.day} ref={el => rowsRef.current[i] = el}
+                className={`timeline-row tone-${t.tone}${i === activeIdx ? ' is-active' : ''}`}>
+                <div className="timeline-dot-col"><div className="timeline-dot" /></div>
+                <div className="timeline-day-col">
+                  <div className="timeline-day">{t.day}</div>
+                </div>
+                <div className="timeline-body-col">
+                  <h3 className="timeline-title">{t.title}</h3>
+                  <p className="timeline-body">{t.body}</p>
+                </div>
+                <div className="timeline-support-col">
+                  <p className="timeline-support">{t.support}</p>
+                  {t.cta && (
+                    <a href={t.ctaHref || '#'} className="btn btn-primary timeline-cta">
+                      {t.cta}
+                      <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" style={{marginLeft:8}}>
+                        <path d="M7 2 L7 11 M3 7.5 L7 11.5 L11 7.5" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    /* ── Section 02: Introduction to Morpho Midnight ── */
+    function SectionIntro() {
+      return (
+        <section id="intro" className="section section-intro">
+          <SectionHeader number="02" title="Introduction to Morpho Midnight" />
+
+          <div className="intro-why">
+            <div className="intro-why-head">
+              <h3 className="intro-sub-title">Why Midnight</h3>
+              <p className="intro-sub-lede">Midnight builds directly on what Morpho Blue taught us.</p>
+            </div>
+            <div className="intro-why-grid">
+              <div className="intro-card intro-card-proved">
+                <div className="intro-card-label">
+                  <span className="intro-badge intro-badge-check">
+                    <svg width="11" height="11" viewBox="0 0 12 12"><path d="M2.5 6.2 L5 8.6 L9.5 3.5" stroke="#fff" strokeWidth="1.7" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  What Blue proved
+                </div>
+                <ul className="intro-list">
+                  {WHY_MIDNIGHT.proved.map(x => <li key={x}>{x}</li>)}
+                </ul>
+              </div>
+              <div className="intro-card intro-card-revealed">
+                <div className="intro-card-label">
+                  <span className="intro-badge intro-badge-arrow">
+                    <svg width="11" height="11" viewBox="0 0 12 12"><path d="M6 2.5 L6 9.5 M3 6.5 L6 9.5 L9 6.5" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  What Blue revealed
+                </div>
+                <ul className="intro-list">
+                  {WHY_MIDNIGHT.revealed.map(x => <li key={x}>{x}</li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="intro-what">
+            <div className="intro-what-head">
+              <h3 className="intro-sub-title">What is Morpho Midnight</h3>
+              <p className="intro-definition">{WHAT_IS_MIDNIGHT.definition}</p>
+              <p className="intro-complement">{WHAT_IS_MIDNIGHT.complement}</p>
+              <div className="intro-links">
+                <span className="t-overline">LEARN MORE</span>
+                <div className="intro-links-row">
+                  {WHAT_IS_MIDNIGHT.links.map(l => (
+                    <a key={l.label} className="intro-link-pill" href={l.href} target="_blank" rel="noopener">
+                      <span>{l.label}</span>
+                      <svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true">
+                        <path d="M3 8 L8 3 M4 3 L8 3 L8 7" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <figure className="intro-diagram">
+              <img src={DIAGRAM_IMG} alt="How Morpho Vault V2 routes lenders and borrowers across Blue (variable) and Midnight (fixed) markets." />
+              <figcaption>Lenders and borrowers route through Morpho Vault V2 across Blue (variable) and Midnight (fixed-rate) markets.</figcaption>
+            </figure>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── PersonaPicker chips ── */
+    function PersonaPicker({ current, onChange }) {
+      return (
+        <div className="persona-picker">
+          <span className="t-overline">WHAT DOES YOUR ORGANIZATION FALL UNDER?</span>
+          <div className="persona-picker-row">
+            {PERSONAS.map(p => (
+              <button key={p.id}
+                className={`persona-chip${p.id === current.id ? ' is-active' : ''}`}
+                onClick={() => onChange(p.id)}>
+                <span className="persona-chip-label">{p.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    /* ── Section 03: Benefits for... ── */
+    function SectionCoreMessaging({ persona, onPersonaChange }) {
+      return (
+        <section id="messaging" className="section section-persona">
+          <SectionHeader number="03" title="Benefits for..." sub={persona.sub} />
+          <PersonaPicker current={persona} onChange={onPersonaChange} />
+          <div className="persona-hero">
+            <blockquote className="persona-quote">{persona.hero}</blockquote>
+          </div>
+          <div className="proofs">
+            <div className="proofs-grid">
+              {persona.proofs.map((p, i) => (
+                <div key={i} className="proof-card">
+                  <div className="proof-index">0{i + 1}</div>
+                  <p className="proof-value">{p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── Footer ── */
+    function Footer() {
+      return (
+        <footer className="footer">
+          <div className="footer-inner">
+            <div className="footer-brand">
+              <img src={LOGO_HORIZONTAL} alt="Morpho" className="footer-logo" />
+              <p className="footer-tag">The open credit network for the world.</p>
+            </div>
+            <div className="footer-cols">
+              <div className="footer-col">
+                <span className="t-overline">Marketing team</span>
+                <span>marketing@morpho.org</span>
+              </div>
+              <div className="footer-col">
+                <span className="t-overline">Partnerships marketing</span>
+                <span>@bobajeanjacques</span>
+                <span>jj@morpho.org</span>
+              </div>
+            </div>
+          </div>
+          <div className="footer-legal">
+            <span>Confidential — for partner internal use only</span>
+          </div>
+        </footer>
+      );
+    }
+
+    /* ── Tweaks Panel ── */
+    function TweaksPanelHost({ tweaks, setTweak }) {
+      const [open, setOpen] = useState(false);
+      const dragRef = useRef(null);
+      const offsetRef = useRef({ x: 16, y: 16 });
+
+      useEffect(() => {
+        const onMsg = e => {
+          if (e?.data?.type === '__activate_edit_mode') setOpen(true);
+          else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);
+        };
+        window.addEventListener('message', onMsg);
+        window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+        return () => window.removeEventListener('message', onMsg);
+      }, []);
+
+      const dismiss = () => {
+        setOpen(false);
+        window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+      };
+
+      if (!open) return null;
+
+      const accentKeys = Object.keys(ACCENT_PALETTES);
+      const idx = Math.max(0, accentKeys.indexOf(tweaks.accent));
+
+      return (
+        <div ref={dragRef} className="twk-panel" style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+          <div className="twk-hd">
+            <b>Tweaks</b>
+            <button className="twk-x" onClick={dismiss}>✕</button>
+          </div>
+          <div className="twk-body">
+            <div className="twk-sect">Persona</div>
+            <div className="twk-row">
+              <div className="twk-lbl"><span>Type</span></div>
+              <select className="twk-field" value={tweaks.persona} onChange={e => setTweak('persona', e.target.value)}>
+                {PERSONAS.map(p => <option key={p.id} value={p.id}>{p.label}</option>)}
+              </select>
+            </div>
+
+            <div className="twk-sect">Accent</div>
+            <div className="twk-row">
+              <div className="twk-lbl"><span>Color</span></div>
+              <div className="twk-chips">
+                {accentKeys.map(c => (
+                  <button key={c} className="twk-chip" data-on={tweaks.accent === c ? '1' : '0'}
+                    style={{ background: c }} onClick={() => setTweak('accent', c)}>
+                    {tweaks.accent === c && (
+                      <svg viewBox="0 0 14 14" aria-hidden="true">
+                        <path d="M3 7.2 5.8 10 11 4.2" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" stroke="#fff"/>
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="twk-sect">Density</div>
+            <div className="twk-row">
+              <div className="twk-lbl"><span>Spacing</span></div>
+              <div className="twk-seg">
+                <div className="twk-seg-thumb" style={{
+                  left: `calc(2px + ${tweaks.density === 'compact' ? 1 : 0} * (100% - 4px) / 2)`,
+                  width: 'calc((100% - 4px) / 2)'
+                }} />
+                {['comfortable', 'compact'].map(v => (
+                  <button key={v} onClick={() => setTweak('density', v)}>{v.charAt(0).toUpperCase() + v.slice(1)}</button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ── App ── */
+    function App() {
+      const [tweaks, setTweak] = useTweaks({ persona: 'curators', accent: '#2973FF', density: 'comfortable' });
+      const persona = PERSONAS.find(p => p.id === tweaks.persona) || PERSONAS[0];
+      const palette = ACCENT_PALETTES[tweaks.accent] || ACCENT_PALETTES['#2973FF'];
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--accent', tweaks.accent);
+        document.documentElement.style.setProperty('--accent-bright', palette.bright);
+        document.documentElement.setAttribute('data-density', tweaks.density);
+      }, [tweaks.accent, tweaks.density, palette.bright]);
+
+      return (
+        <>
+          <TopBar persona={persona} onPersonaChange={id => setTweak('persona', id)} />
+          <main>
+            <Hero />
+            <SectionWhatLaunching />
+            <SectionIntro />
+            <SectionCoreMessaging persona={persona} onPersonaChange={id => setTweak('persona', id)} />
+            <Footer />
+          </main>
+          <TweaksPanelHost tweaks={tweaks} setTweak={setTweak} />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
