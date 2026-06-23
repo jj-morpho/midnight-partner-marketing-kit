@@ -3,7 +3,7 @@
 const { useState, useEffect, useMemo, useRef } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "persona": "curators",
+  "persona": "institutions",
   "accent": "#2973FF",
   "density": "comfortable"
 } /*EDITMODE-END*/;

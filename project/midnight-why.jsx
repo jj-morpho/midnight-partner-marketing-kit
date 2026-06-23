@@ -49,6 +49,11 @@ function SectionIntro() {
             <span className="t-overline">LEARN MORE</span>
             <div className="intro-links-row">
               {WHAT_IS_MIDNIGHT.links.map((l) =>
+              l.soon ?
+              <span key={l.label} className="intro-link-pill is-soon" aria-disabled="true">
+                  <span>{l.label}</span>
+                  <span className="intro-link-soon">Coming soon</span>
+                </span> :
               <a key={l.label} className="intro-link-pill" href={l.href} target="_blank" rel="noopener">
                   <span>{l.label}</span>
                   <svg width="11" height="11" viewBox="0 0 11 11" aria-hidden="true"><path d="M3 8 L8 3 M4 3 L8 3 L8 7" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>

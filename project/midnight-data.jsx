@@ -125,7 +125,7 @@ const WHAT_IS_MIDNIGHT = {
     { label: 'Code base', href: 'https://t.co/mhHwMqClmn' },
     { label: 'Whitepaper', href: 'https://morpho.org/whitepapers/midnight-whitepaper.pdf' },
     { label: 'Deck', href: 'https://morpho.docsend.com/view/adaad8gmujszedvm' },
-    { label: 'One pager', href: '#' },
+    { label: 'One pager', href: '#', soon: true },
   ],
 };
 

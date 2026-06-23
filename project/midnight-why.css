@@ -133,6 +133,25 @@
   border-color: var(--accent);
   color: var(--accent-bright);
 }
+.intro-link-pill.is-soon {
+  cursor: default;
+  opacity: 0.7;
+  color: var(--fg-tertiary);
+}
+.intro-link-pill.is-soon:hover {
+  border-color: var(--border-primary);
+  color: var(--fg-tertiary);
+}
+.intro-link-soon {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(41,115,255,0.14);
+}
 
 .intro-diagram {
   margin: 0;
