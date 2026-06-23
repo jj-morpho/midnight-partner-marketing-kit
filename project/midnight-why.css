@@ -1,0 +1,163 @@
+/* Introduction to Morpho Midnight — section styles */
+
+.section-intro {
+  background:
+    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(41,115,255,0.05), transparent 60%);
+}
+
+.intro-sub-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  color: var(--fg-primary);
+  margin: 0;
+}
+.intro-sub-lede {
+  font-size: 16px;
+  color: var(--fg-tertiary);
+  margin: 6px 0 0;
+}
+
+/* ---- Why Midnight: proved / revealed ---- */
+.intro-why {
+  max-width: 1280px;
+  margin: 0 auto 96px;
+}
+.intro-why-head { margin-bottom: 28px; }
+.intro-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.intro-card {
+  padding: 32px 36px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-secondary);
+  background: var(--midnight-bg-1, #12161B);
+}
+.intro-card-proved {
+  background: linear-gradient(180deg, rgba(41,115,255,0.07), rgba(41,115,255,0.015));
+  border-color: rgba(41,115,255,0.22);
+}
+.intro-card-revealed {
+  background: linear-gradient(180deg, rgba(143,182,255,0.05), rgba(255,255,255,0.01));
+}
+.intro-card-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  margin-bottom: 24px;
+}
+.intro-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.intro-badge-check { background: var(--accent); }
+.intro-badge-arrow { background: var(--fg-quaternary); }
+
+.intro-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.intro-list li {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fg-primary);
+  padding: 18px 0;
+  border-top: 1px solid var(--border-tertiary);
+}
+.intro-list li:first-child { border-top: none; padding-top: 4px; }
+.intro-card-revealed .intro-list li { color: var(--fg-secondary); }
+
+/* ---- What is Midnight: definition + diagram ---- */
+.intro-what {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: start;
+}
+.intro-what-head { position: sticky; top: 96px; }
+.intro-definition {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--fg-primary);
+  margin: 16px 0 0;
+  text-wrap: pretty;
+}
+.intro-complement {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg-tertiary);
+  margin: 20px 0 0;
+  max-width: 460px;
+}
+.intro-links { margin-top: 28px; }
+.intro-links .t-overline { display: block; margin-bottom: 10px; }
+.intro-links-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.intro-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  color: var(--fg-primary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--dur-fast) var(--ease-standard);
+}
+.intro-link-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+}
+
+.intro-diagram {
+  margin: 0;
+  background: #EEF1F6;
+  border: 1px solid #EEF1F6;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+.intro-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.intro-diagram figcaption {
+  font-size: 12px;
+  color: var(--fg-tertiary);
+  padding: 14px 20px;
+  background: var(--midnight-bg-1, #12161B);
+  border-top: 1px solid var(--border-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .intro-why-grid { grid-template-columns: 1fr; }
+  .intro-what { grid-template-columns: 1fr; gap: 32px; }
+  .intro-what-head { position: static; }
+  .intro-why { margin-bottom: 64px; }
+}

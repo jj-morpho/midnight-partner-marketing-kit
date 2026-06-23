@@ -1,0 +1,267 @@
+/* =============================================================
+   Morpho Design System — Colors & Type
+   Source: Morpho Design System.fig (Foundations / Colors, Theme-Dark,
+   Theme-Light, Typography). FK Grotesk is the brand display/UI face;
+   Untitled Sans is the secondary text face (formerly "Test Untitled Sans").
+   ============================================================= */
+
+/* ---------- FONT FACES ---------- */
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-LightItalic.otf") format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-MediumItalic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "FK Grotesk"; src: url("fonts/FKGrotesk-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-regular-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-medium-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Untitled Sans"; src: url("fonts/untitled-sans-bold-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+
+:root {
+  /* =========================================================
+     PRIMITIVES — never reference directly in product code.
+     Use the semantic tokens below instead.
+     ========================================================= */
+
+  /* Neutral (0–1000, dark→light). Approximated from Figma swatches. */
+  --neutral-1000: #121212;
+  --neutral-950:  #15181A;
+  --neutral-900:  #1E2227;
+  --neutral-850:  #2C313A;
+  --neutral-800:  #353A46;
+  --neutral-700:  #464F60;
+  --neutral-600:  #5B677E;
+  --neutral-500:  #6E7A92;
+  --neutral-400:  #95A1B8;
+  --neutral-300:  #B1C0DD;
+  --neutral-200:  #D0DDF7;
+  --neutral-150:  #DEE8FC;
+  --neutral-100:  #F0F4FF;
+  --neutral-50:   #F8FAFF;
+  --neutral-0:    #FFFFFF;
+
+  /* Brand blue (Morpho signature) */
+  --brand-500: #1C64EA;
+  --brand-400: #2973FF;
+  --brand-300: #5792FF;
+  --brand-200: #C4DAFF;
+  --brand-100: #DEE8FC;
+
+  /* Success — teal */
+  --success-500: #0E7F6B;
+  --success-400: #4FAE98;
+  --success-300: #7FC4B1;
+  --success-200: #B8DDD1;
+  --success-100: #DCEEE7;
+
+  /* Warning — amber/brown */
+  --warning-500: #8A4B0B;
+  --warning-400: #C88847;
+  --warning-300: #F4B672;
+  --warning-200: #FAD7A8;
+  --warning-100: #FFECD1;
+
+  /* Error — crimson/pink */
+  --error-500: #B0133E;
+  --error-400: #D44467;
+  --error-300: #FF7792;
+  --error-200: #FF9EB3;
+  --error-100: #FFE5EC;
+
+  /* Grey scale (secondary) */
+  --grey-400: #5B677E;
+  --grey-300: #95A1B8;
+  --grey-200: #B1C0DD;
+  --grey-100: #D0DDF7;
+
+  /* =========================================================
+     SEMANTIC TOKENS — DARK (default theme)
+     ========================================================= */
+
+  /* Background levels (0 = page, higher = elevated surfaces) */
+  --bg-level-0: #15181A;   /* page */
+  --bg-level-1: #1E2227;   /* primary surface */
+  --bg-level-2: #2C313A;   /* raised card */
+  --bg-level-3: #353A46;   /* popover / menu */
+  --bg-level-4: #464F60;   /* tooltip / active */
+  --bg-level-5: #5B677E;
+
+  --bg-invert:       var(--neutral-0);
+  --bg-invert-hover: var(--neutral-200);
+  --bg-brand:        var(--brand-400);
+  --bg-brand-hover:  var(--brand-500);
+  --bg-success:      var(--success-400);
+  --bg-warning:      var(--warning-400);
+  --bg-error:        var(--error-400);
+
+  /* Foreground */
+  --fg-primary:    #FFFFFF;
+  --fg-secondary:  #DEE8FC;
+  --fg-tertiary:   #95A1B8;
+  --fg-quaternary: #5B677E;
+  --fg-invert:       #15181A;
+  --fg-invert-hover: #2C313A;
+  --fg-brand:   var(--brand-300);
+  --fg-success: var(--success-400);
+  --fg-warning: var(--warning-400);
+  --fg-error:   var(--error-400);
+
+  /* Border */
+  --border-primary:    rgba(255,255,255,0.12);
+  --border-secondary:  rgba(255,255,255,0.08);
+  --border-tertiary:   rgba(255,255,255,0.05);
+  --border-quaternary: rgba(255,255,255,0.03);
+  --border-brand:   var(--brand-400);
+  --border-success: var(--success-400);
+  --border-warning: var(--warning-400);
+  --border-error:   var(--error-400);
+
+  /* Gradients — Morpho-signature protection gradients */
+  --gradient-brand:   linear-gradient(180deg, rgba(41,115,255,0.5), rgba(41,115,255,0));
+  --gradient-neutral: linear-gradient(180deg, rgba(21,24,26,1), rgba(21,24,26,0));
+
+  /* Input */
+  --input-bg:         #1E2227;
+  --input-bg-focus:   #2C313A;
+  --input-border:         rgba(255,255,255,0.08);
+  --input-border-focus:   var(--brand-400);
+  --input-border-error:   var(--error-400);
+
+  /* =========================================================
+     SPACING — 4pt grid. Desktop.
+     ========================================================= */
+  --space-2xs: 4px;
+  --space-xs:  8px;
+  --space-s:   12px;
+  --space-m:   16px;
+  --space-l:   24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+
+  /* Radii */
+  --radius-xs:   4px;
+  --radius-s:    8px;
+  --radius-m:    12px;
+  --radius-l:    16px;
+  --radius-xl:   24px;
+  --radius-full: 999px;
+
+  /* Elevation — subtle, flat. Morpho rarely stacks shadows. */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.40);
+  --shadow-2: 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-3: 0 16px 48px rgba(0,0,0,0.45);
+  --shadow-focus: 0 0 0 3px rgba(41,115,255,0.35);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:      120ms;
+  --dur-base:      200ms;
+  --dur-slow:      360ms;
+
+  /* =========================================================
+     TYPE PRIMITIVES
+     ========================================================= */
+  --font-display: "FK Grotesk", "Inter", system-ui, sans-serif;
+  --font-body:    "FK Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans:    "Untitled Sans", "FK Grotesk", system-ui, sans-serif;
+  --font-mono:    "FK Grotesk SemiMono", "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Type scale — derived from Typography / Bases */
+  --t-hero-500-size: 100px; --t-hero-500-lh: 1.00; --t-hero-500-weight: 300;
+  --t-hero-400-size: 60px;  --t-hero-400-lh: 1.05; --t-hero-400-weight: 300;
+  --t-hero-300-size: 48px;  --t-hero-300-lh: 1.10; --t-hero-300-weight: 300;
+
+  --t-h1-size: 48px; --t-h1-lh: 1.10; --t-h1-weight: 300;
+  --t-h2-size: 32px; --t-h2-lh: 1.15; --t-h2-weight: 400;
+  --t-h3-size: 24px; --t-h3-lh: 1.25; --t-h3-weight: 400;
+  --t-h4-size: 20px; --t-h4-lh: 1.30; --t-h4-weight: 500;
+
+  --t-body-500-size: 22px; --t-body-500-lh: 1.45;
+  --t-body-400-size: 16px; --t-body-400-lh: 1.60;
+  --t-body-300-size: 14px; --t-body-300-lh: 1.55;
+  --t-body-200-size: 12px; --t-body-200-lh: 1.60;
+
+  --t-caption-size: 12px; --t-caption-lh: 1.60; --t-caption-tracking: 0.02em;
+  --t-overline-size: 12px; --t-overline-lh: 1.60; --t-overline-tracking: 0.08em;
+  --t-mono-size: 14px; --t-mono-lh: 1.55;
+}
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+[data-theme="light"] {
+  --bg-level-0: #FFFFFF;
+  --bg-level-1: #F8FAFF;
+  --bg-level-2: #F0F4FF;
+  --bg-level-3: #DEE8FC;
+  --bg-level-4: #D0DDF7;
+  --bg-level-5: #B1C0DD;
+
+  --bg-invert: #15181A;
+  --bg-invert-hover: #2C313A;
+
+  --fg-primary:    #15181A;
+  --fg-secondary:  #353A46;
+  --fg-tertiary:   #5B677E;
+  --fg-quaternary: #95A1B8;
+  --fg-invert:       #FFFFFF;
+  --fg-invert-hover: #DEE8FC;
+  --fg-brand: var(--brand-500);
+
+  --border-primary:    rgba(21,24,26,0.12);
+  --border-secondary:  rgba(21,24,26,0.08);
+  --border-tertiary:   rgba(21,24,26,0.05);
+  --border-quaternary: rgba(21,24,26,0.03);
+
+  --gradient-brand:   linear-gradient(180deg, rgba(28,100,234,0.10), rgba(28,100,234,0));
+  --gradient-neutral: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0));
+
+  --input-bg:       #F4F7FF;
+  --input-bg-focus: #FFFFFF;
+  --input-border:       rgba(21,24,26,0.10);
+  --input-border-focus: var(--brand-400);
+
+  --shadow-1: 0 1px 2px rgba(21,24,26,0.06);
+  --shadow-2: 0 8px 24px rgba(21,24,26,0.08);
+  --shadow-3: 0 16px 48px rgba(21,24,26,0.12);
+}
+
+/* =========================================================
+   SEMANTIC TYPE CLASSES
+   ========================================================= */
+html, body {
+  font-family: var(--font-display);
+  color: var(--fg-primary);
+  background: var(--bg-level-0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.t-hero-500 { font-family: var(--font-display); font-weight: 300; font-size: var(--t-hero-500-size); line-height: var(--t-hero-500-lh); letter-spacing: -0.02em; }
+.t-hero-400 { font-family: var(--font-display); font-weight: 300; font-size: var(--t-hero-400-size); line-height: var(--t-hero-400-lh); letter-spacing: -0.02em; }
+.t-hero-300 { font-family: var(--font-display); font-weight: 300; font-size: var(--t-hero-300-size); line-height: var(--t-hero-300-lh); letter-spacing: -0.015em; }
+
+h1, .t-h1 { font-family: var(--font-display); font-weight: 300; font-size: var(--t-h1-size); line-height: var(--t-h1-lh); letter-spacing: -0.015em; margin: 0; }
+h2, .t-h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--t-h2-size); line-height: var(--t-h2-lh); letter-spacing: -0.01em; margin: 0; }
+h3, .t-h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--t-h3-size); line-height: var(--t-h3-lh); margin: 0; }
+h4, .t-h4 { font-family: var(--font-display); font-weight: 500; font-size: var(--t-h4-size); line-height: var(--t-h4-lh); margin: 0; }
+
+.t-body-500, .lead { font-family: var(--font-display); font-weight: 400; font-size: var(--t-body-500-size); line-height: var(--t-body-500-lh); color: var(--fg-secondary); }
+p, .t-body-400 { font-family: var(--font-display); font-weight: 400; font-size: var(--t-body-400-size); line-height: var(--t-body-400-lh); color: var(--fg-secondary); margin: 0; }
+.t-body-300 { font-family: var(--font-display); font-weight: 400; font-size: var(--t-body-300-size); line-height: var(--t-body-300-lh); }
+.t-body-200, small, .legend { font-family: var(--font-display); font-weight: 400; font-size: var(--t-body-200-size); line-height: var(--t-body-200-lh); color: var(--fg-tertiary); }
+
+.t-caption { font-family: var(--font-sans); font-size: var(--t-caption-size); line-height: var(--t-caption-lh); letter-spacing: var(--t-caption-tracking); color: var(--fg-tertiary); }
+.t-overline { font-family: var(--font-display); font-size: var(--t-overline-size); line-height: var(--t-overline-lh); letter-spacing: var(--t-overline-tracking); text-transform: uppercase; color: var(--fg-tertiary); }
+code, .t-mono { font-family: var(--font-mono); font-size: var(--t-mono-size); line-height: var(--t-mono-lh); }
+
+/* Text link */
+a { color: var(--fg-brand); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--dur-fast) var(--ease-standard); }
+a:hover { border-bottom-color: currentColor; }
