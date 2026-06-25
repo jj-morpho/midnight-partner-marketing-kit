@@ -70,7 +70,7 @@ const TIMELINE = [
     day: 'Launch Day',
     title: 'Midnight goes live',
     body: 'Announcement with animation and a CTA towards the Morpho Midnight app.',
-    support: "QT the announcement with a line on what Midnight unlocks for what you're building.",
+    support: "QT the announcement with a line on what Midnight unlocks for you.",
     cta: 'Core benefit for you',
     ctaHref: '#messaging',
     tone: 'launch',

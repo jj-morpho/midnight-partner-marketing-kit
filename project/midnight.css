@@ -857,12 +857,13 @@ html[data-density="compact"] .evolution-current-body { font-size: 22px; }
 }
 .persona-chip {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
   padding: 12px 20px;
   background: var(--midnight-bg-1);
   border: 1px solid var(--border-secondary);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-l);
   cursor: pointer;
   text-align: left;
   font-family: inherit;
@@ -876,7 +877,12 @@ html[data-density="compact"] .evolution-current-body { font-size: 22px; }
   color: var(--fg-primary);
 }
 .persona-chip-label { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
-.persona-chip-sub { display: none; }
+.persona-chip-sub {
+  font-size: 11px;
+  color: var(--fg-quaternary);
+  letter-spacing: 0.01em;
+}
+.persona-chip.is-active .persona-chip-sub { color: var(--accent-bright); }
 @media (max-width: 960px) {
   .persona-picker-row { gap: 8px; }
 }

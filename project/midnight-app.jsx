@@ -55,14 +55,13 @@ function TopBar({ persona, onPersonaChange }) {
         <div className="topbar-brand">
           <img src={window.__resources && window.__resources.logoSymbol || "assets/Morpho-logo-symbol-darkmode.svg"} alt="Morpho" className="brand-mark" />
           <span className="brand-divider">/</span>
-          <span className="brand-label">Midnight · Partnership kit</span>
+          <span className="brand-label">Midnight Announcement Kit</span>
         </div>
         <nav className="topbar-nav">
           <a href="#launching">Announcement Plan</a>
           <a href="#intro">Midnight</a>
           <a href="#messaging">Benefits</a>
         </nav>
-        <PersonaPill persona={persona} onPersonaChange={onPersonaChange} />
       </div>
     </header>);
 
@@ -109,8 +108,6 @@ function Hero({ persona, onPersonaChange }) {
       <HeroBackdrop />
       <div className="hero-content">
         <div className="hero-meta">
-          <span className="t-overline">Partnership marketing kit</span>
-          <span className="hero-meta-dot">·</span>
           <span className="t-overline">CONFIDENTIAL </span>
         </div>
         <h1 className="hero-title">
@@ -123,7 +120,7 @@ The infrastructure that brings the $200T credit markets onchain.
         <div className="hero-launch">
           <div className="hero-launch-item">
             <span className="t-overline">Launch</span>
-            <span className="hero-launch-value">est. Early July 2026</span>
+            <span className="hero-launch-value">est. Mid July, 2026</span>
           </div>
           <div className="hero-launch-divider" />
           <div className="hero-launch-item">
@@ -321,7 +318,7 @@ function SectionHowSupport() {
 function SectionCoreMessaging({ persona, onPersonaChange }) {
   return (
     <section id="messaging" className="section section-persona">
-      <SectionHeader number="03" title="Benefits for..." sub={persona.sub} data-comment-anchor="b464e7c91c-h2-409-9" />
+      <SectionHeader number="03" title="Benefits for..." data-comment-anchor="b464e7c91c-h2-409-9" />
 
       <PersonaPicker current={persona} onChange={onPersonaChange} />
 
@@ -348,15 +345,14 @@ function SectionCoreMessaging({ persona, onPersonaChange }) {
 function PersonaPicker({ current, onChange }) {
   return (
     <div className="persona-picker">
-      <span className="t-overline">WHAT DOES YOUR ORGANIZATION FALL UNDER?</span>
-      <div className="persona-picker-row">
-        {window.MIDNIGHT.PERSONAS.map((p) =>
+      <div className="persona-picker-row">        {window.MIDNIGHT.PERSONAS.map((p) =>
         <button
           key={p.id}
           className={'persona-chip ' + (p.id === current.id ? 'is-active' : '')}
           onClick={() => onChange(p.id)}>
           
             <span className="persona-chip-label">{p.label}</span>
+            <span className="persona-chip-sub">{p.sub}</span>
           </button>
         )}
       </div>

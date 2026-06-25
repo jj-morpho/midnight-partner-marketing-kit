@@ -468,11 +468,11 @@
     .persona-picker > .t-overline { display: block; margin-bottom: 16px; }
     .persona-picker-row { display: flex; flex-wrap: wrap; gap: 10px; }
     .persona-chip {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px;
       padding: 12px 20px;
       background: var(--midnight-bg-1);
       border: 1px solid var(--border-secondary);
-      border-radius: var(--radius-full);
+      border-radius: var(--radius-l);
       cursor: pointer; text-align: left;
       font-family: inherit; color: var(--fg-tertiary);
       transition: all var(--dur-fast) var(--ease-standard);
@@ -484,6 +484,8 @@
       color: var(--fg-primary);
     }
     .persona-chip-label { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+    .persona-chip-sub { font-size: 11px; color: var(--fg-quaternary); letter-spacing: 0.01em; }
+    .persona-chip.is-active .persona-chip-sub { color: var(--accent-bright); }
 
     .persona-hero {
       max-width: 1100px; margin: 0 auto 80px;
@@ -725,7 +727,7 @@
         day: 'Launch Day',
         title: 'Midnight goes live',
         body: 'Announcement with animation and a CTA towards the Morpho Midnight app.',
-        support: "QT the announcement with a line on what Midnight unlocks for what you're building.",
+        support: "QT the announcement with a line on what Midnight unlocks for you.",
         cta: 'Core benefit for you',
         ctaHref: '#messaging',
         tone: 'launch',
@@ -872,14 +874,13 @@
             <div className="topbar-brand">
               <img src={LOGO_SYMBOL} alt="Morpho" className="brand-mark" />
               <span className="brand-divider">/</span>
-              <span className="brand-label">Midnight · Partnership kit</span>
+              <span className="brand-label">Midnight Announcement Kit</span>
             </div>
             <nav className="topbar-nav">
               <a href="#launching">Announcement Plan</a>
               <a href="#intro">Midnight</a>
               <a href="#messaging">Benefits</a>
             </nav>
-            <PersonaPill persona={persona} onChange={onPersonaChange} />
           </div>
         </header>
       );
@@ -892,8 +893,6 @@
           <HeroBackdrop />
           <div className="hero-content">
             <div className="hero-meta">
-              <span className="t-overline">Partnership marketing kit</span>
-              <span className="hero-meta-dot">·</span>
               <span className="t-overline">CONFIDENTIAL</span>
             </div>
             <h1 className="hero-title">
@@ -907,7 +906,7 @@
             <div className="hero-launch">
               <div className="hero-launch-item">
                 <span className="t-overline">Launch</span>
-                <span className="hero-launch-value">est. Early July 2026</span>
+                <span className="hero-launch-value">est. Mid July, 2026</span>
               </div>
               <div className="hero-launch-item">
                 <span className="t-overline">Teasing window</span>
@@ -1075,13 +1074,13 @@
     function PersonaPicker({ current, onChange }) {
       return (
         <div className="persona-picker">
-          <span className="t-overline">WHAT DOES YOUR ORGANIZATION FALL UNDER?</span>
           <div className="persona-picker-row">
             {PERSONAS.map(p => (
               <button key={p.id}
                 className={`persona-chip${p.id === current.id ? ' is-active' : ''}`}
                 onClick={() => onChange(p.id)}>
                 <span className="persona-chip-label">{p.label}</span>
+                <span className="persona-chip-sub">{p.sub}</span>
               </button>
             ))}
           </div>
@@ -1093,7 +1092,7 @@
     function SectionCoreMessaging({ persona, onPersonaChange }) {
       return (
         <section id="messaging" className="section section-persona">
-          <SectionHeader number="03" title="Benefits for..." sub={persona.sub} />
+          <SectionHeader number="03" title="Benefits for..." />
           <PersonaPicker current={persona} onChange={onPersonaChange} />
           <div className="persona-hero">
             <blockquote className="persona-quote">{persona.hero}</blockquote>
